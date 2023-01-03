@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/oneCinemaListItemLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="15dp">
+
+    <ImageView
+        android:id="@+id/iv_cinema"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentStart="true"
+        android:scaleType="centerCrop"
+        android:src="@drawable/cinema" />
+
+    <TextView
+        android:id="@+id/tv_cinemaName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/iv_cinema"
+        android:fontFamily="@font/prompt_medium"
+        android:text="@string/cinemaName"
+        android:textColor="@color/black"
+        android:textSize="18dp" />
+
+    <TextView
+        android:id="@+id/tv_cinemaDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_cinemaName"
+        android:layout_marginLeft="10dp"
+        android:layout_toRightOf="@id/iv_cinema"
+        android:fontFamily="@font/prompt_regular"
+        android:text="@string/cinemaDescription"
+        android:textColor="@color/black"
+        android:textSize="14dp" />
+
+</RelativeLayout>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Tickets</string>
+    <string name="enter_login">Enter your login</string>
+    <string name="enter_password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm your password</string>
+    <string name="enter_valid_email">Enter valid email</string>
+    <string name="enter_valid_password">Password must contain at least 8 characters</string>
+    <string name="passwords_do_not_match">Passwords do not match</string>
+    <string name="not_valid_credentials">Credentials are not valid</string>
+    <string name="not_valid_data">Not valid data</string>
+    <string name="cinemaName">Cinema Name</string>
+    <string name="cinemaDescription">Cinema Description</string>
+    <string name="tv_cinemaName">Cinema Name</string>
+    <string name="date">15.01.2023</string>
+    <string name="film_name">Film Name</string>
+</resources>
