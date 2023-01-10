@@ -22,13 +22,17 @@ public class CinemaList extends AppCompatActivity implements CinemaListRecyclerV
     private RecyclerView.Adapter recyclerViewAdapter;
     private RecyclerView.LayoutManager layoutManager;
 
+    private DBConnector dbConnector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cinema_list);
 
+        dbConnector = new DBConnector(getApplicationContext());
+
         // ---------------------- Cinema List View -----------------------------
-        cinemas = DBConnector.getCinemas();
+        cinemas = dbConnector.getCinemas();
 
         recyclerView = findViewById(R.id.cinemaListRecyclerView);
         recyclerView.setHasFixedSize(true);
