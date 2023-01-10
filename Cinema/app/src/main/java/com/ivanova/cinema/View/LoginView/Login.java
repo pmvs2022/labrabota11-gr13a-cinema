@@ -10,6 +10,7 @@ import androidx.fragment.app.FragmentTransaction;
 
 import com.ivanova.cinema.R;
 import com.ivanova.cinema.View.CinemaListView.CinemaList;
+import com.ivanova.cinema.View.MovieActivity;
 
 public class Login extends AppCompatActivity implements FragmentNavigation {
 

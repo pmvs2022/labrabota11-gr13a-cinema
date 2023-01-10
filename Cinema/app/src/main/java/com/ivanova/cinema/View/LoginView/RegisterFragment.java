@@ -24,6 +24,8 @@ public class RegisterFragment extends Fragment {
 
     private Button registerBtn;
 
+    private DBConnector dbConnector;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_register, container, false);
@@ -48,6 +50,7 @@ public class RegisterFragment extends Fragment {
             }
         });
 
+        dbConnector = new DBConnector(getActivity().getApplicationContext());
         return view;
     }
 
@@ -90,7 +93,7 @@ public class RegisterFragment extends Fragment {
         String loginStr = login.getText().toString();
         String passwordStr = password.getText().toString();
 
-        if (DBConnector.registerUser(loginStr, passwordStr)) {
+        if (dbConnector.registerUser(loginStr, passwordStr)) {
             FragmentNavigation navRegister = (FragmentNavigation) getActivity();
             navRegister.navigateFragments(null, true);
         } else {

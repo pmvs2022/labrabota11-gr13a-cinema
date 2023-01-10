@@ -33,6 +33,8 @@ public class CinemaSessions extends AppCompatActivity {
 
     private ArrayList<Session> sessions;
 
+    private DBConnector dbConnector;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,8 +72,8 @@ public class CinemaSessions extends AppCompatActivity {
             }
         });
 
-
-        sessions = DBConnector.getSessions(Integer.parseInt(getIntent().getStringExtra("CINEMA_ID")), convertToDateString());
+        dbConnector = new DBConnector(getApplicationContext());
+        sessions = dbConnector.getSessions(Integer.parseInt(getIntent().getStringExtra("CINEMA_ID")), convertToDateString());
     }
 
     private String convertToDateString() {
