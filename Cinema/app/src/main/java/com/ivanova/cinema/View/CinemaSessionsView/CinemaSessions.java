@@ -62,7 +62,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         tv_cinemaName.setText(getIntent().getStringExtra("CINEMA_NAME"));
 
         tv_date = findViewById(R.id.tv_date);
-        String dateStr = convertToDateString();
+        String dateStr = convertToDateString(dayPicked, monthPicked, yearPicked);
         tv_date.setText(dateStr);
 
         // ---------------------- Date Picker -----------------------------
@@ -77,7 +77,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
                         monthPicked = month + 1;
                         dayPicked = day;
 
-                        String dateStr = convertToDateString();
+                        String dateStr = convertToDateString(dayPicked, monthPicked, yearPicked);
                         tv_date.setText(dateStr);
                         setFilmSessions();
                     }
@@ -91,8 +91,10 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
 
     private void setFilmSessions() {
         dbConnector = new DBConnector(getApplicationContext());
+        sessions = dbConnector.getSessions(Integer.parseInt(getIntent().getStringExtra("CINEMA_ID")),
+                convertToDateString(dayPicked, monthPicked, yearPicked));
         Integer cinemaId = Integer.parseInt(getIntent().getStringExtra("CINEMA_ID"));
-        String date = convertToDateString();
+        String date = convertToDateString(dayPicked, monthPicked, yearPicked);
         sessions = dbConnector.getSessions(cinemaId, date);
         fromSessionsToFilmSessions(sessions);
 
@@ -107,11 +109,11 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         recyclerView.setAdapter(recyclerViewAdapter);
     }
 
-    private String convertToDateString() {
+    public static String convertToDateString(int day, int month, int year) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Date date = new Date();
         try {
-            date = sdf.parse(dayPicked + "." + monthPicked + "." + yearPicked);
+            date = sdf.parse(day + "." + month + "." + year);
         } catch (ParseException e) {
             e.printStackTrace();
         }
