@@ -49,7 +49,7 @@ public class CinemaSessions extends AppCompatActivity {
         tv_cinemaName.setText(getIntent().getStringExtra("CINEMA_NAME"));
 
         tv_date = findViewById(R.id.tv_date);
-        String dateStr = convertToDateString();
+        String dateStr = convertToDateString(dayPicked, monthPicked, yearPicked);
         tv_date.setText(dateStr);
 
         // ---------------------- Date Picker -----------------------------
@@ -64,7 +64,7 @@ public class CinemaSessions extends AppCompatActivity {
                         monthPicked = month + 1;
                         dayPicked = day;
 
-                        String dateStr = convertToDateString();
+                        String dateStr = convertToDateString(dayPicked, monthPicked, yearPicked);
                         tv_date.setText(dateStr);
                     }
                 }, yearPicked, monthPicked - 1, dayPicked);
@@ -73,17 +73,20 @@ public class CinemaSessions extends AppCompatActivity {
         });
 
         dbConnector = new DBConnector(getApplicationContext());
-        sessions = dbConnector.getSessions(Integer.parseInt(getIntent().getStringExtra("CINEMA_ID")), convertToDateString());
+        sessions = dbConnector.getSessions(Integer.parseInt(getIntent().getStringExtra("CINEMA_ID")),
+                convertToDateString(dayPicked, monthPicked, yearPicked));
     }
 
-    private String convertToDateString() {
+    public static String convertToDateString(int day, int month, int year) {
         SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
         Date date = new Date();
         try {
-            date = sdf.parse(dayPicked + "." + monthPicked + "." + yearPicked);
+            date = sdf.parse(day + "." + month + "." + year);
         } catch (ParseException e) {
             e.printStackTrace();
         }
+
         return sdf.format(date);
+//        return "15.12.2022";
     }
 }
