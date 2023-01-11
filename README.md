@@ -1,4 +1,3 @@
-# labrabota11-gr13a-cinema
 # Project Name
 ## **Афиша кино**
 # Description
