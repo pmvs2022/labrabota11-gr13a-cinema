@@ -5,11 +5,13 @@ import java.util.ArrayList;
 public class FilmSession {
     private Integer filmId;
     private String filmName;
+    private Integer filmApiId;
     private ArrayList<Session> sessions;
 
-    public FilmSession(Integer filmId, String filmName, ArrayList<Session> sessions) {
+    public FilmSession(Integer filmId, String filmName, Integer filmApiId, ArrayList<Session> sessions) {
         this.filmId = filmId;
         this.filmName = filmName;
+        this.filmApiId = filmApiId;
         this.sessions = sessions;
     }
 
@@ -31,6 +33,14 @@ public class FilmSession {
 
     public void setFilmName(String filmName) {
         this.filmName = filmName;
+    }
+
+    public Integer getFilmApiId() {
+        return filmApiId;
+    }
+
+    public void setFilmApiId(Integer filmApiId) {
+        this.filmApiId = filmApiId;
     }
 
     public ArrayList<Session> getSessions() {

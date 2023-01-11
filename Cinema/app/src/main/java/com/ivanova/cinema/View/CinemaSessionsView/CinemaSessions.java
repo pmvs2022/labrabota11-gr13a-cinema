@@ -119,10 +119,10 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
     }
 
     private void fromSessionsToFilmSessions(ArrayList<Session> sessions) {
-        HashMap<Integer,FilmSession> filmSessions = new HashMap<>();
+        HashMap<Integer, FilmSession> filmSessions = new HashMap<>();
         for (Session session : sessions) {
             if (!filmSessions.containsKey(session.getFilmId())) {
-                filmSessions.put(session.getFilmId(), new FilmSession(session.getFilmId(), session.getFilmName(), new ArrayList<>()));
+                filmSessions.put(session.getFilmId(), new FilmSession(session.getFilmId(), session.getFilmName(), Integer.parseInt(session.getFilmApiId()), new ArrayList<>()));
             }
             FilmSession filmSession = filmSessions.get(session.getFilmId());
             filmSession.addSession(session);
@@ -133,7 +133,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
     @Override
     public void onFilmItemClick(int position) {
         Intent intent = new Intent(CinemaSessions.this, MovieActivity.class);
-        intent.putExtra("movie_id", filmSessions.get(position).getFilmId().toString()); //!!!!!!!!!!!!!!!!!!!!!!!
+        intent.putExtra("movie_id", filmSessions.get(position).getFilmApiId().toString());
         startActivity(intent);
     }
 
