@@ -34,6 +34,7 @@
         <activity android:name=".View.CinemaListView.CinemaList" />
         <activity android:name=".View.CinemaSessionsView.CinemaSessions" />
         <activity android:name=".View.MovieActivity"/>
+        <activity android:name=".View.SessionSeatsView.SessionSeats"/>
     </application>
 
 </manifest>

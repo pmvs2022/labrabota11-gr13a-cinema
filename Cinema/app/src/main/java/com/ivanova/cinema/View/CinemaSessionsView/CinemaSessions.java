@@ -18,6 +18,7 @@ import com.ivanova.cinema.Model.Entities.Session;
 import com.ivanova.cinema.R;
 import com.ivanova.cinema.View.CinemaListView.CinemaList;
 import com.ivanova.cinema.View.MovieActivity;
+import com.ivanova.cinema.View.SessionSeatsView.SessionSeats;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -31,6 +32,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
 
     private TextView tv_cinemaName;
     private TextView tv_date;
+    private TextView tv_noFilms;
 
     private RelativeLayout rl_dateBtn;
     private DatePickerDialog datePickerDialog;
@@ -53,6 +55,8 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cinema_sessions);
 
+        dbConnector = new DBConnector(getApplicationContext());
+
         Calendar calendar = Calendar.getInstance();
         yearPicked = calendar.get(Calendar.YEAR);
         monthPicked = calendar.get(Calendar.MONTH) + 1;
@@ -60,6 +64,8 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
 
         tv_cinemaName = findViewById(R.id.tv_cinemaName);
         tv_cinemaName.setText(getIntent().getStringExtra("CINEMA_NAME"));
+
+        tv_noFilms = findViewById(R.id.tv_noFilms);
 
         tv_date = findViewById(R.id.tv_date);
         String dateStr = convertToDateString();
@@ -90,13 +96,13 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
     }
 
     private void setFilmSessions() {
-        dbConnector = new DBConnector(getApplicationContext());
+        tv_noFilms.setVisibility(View.INVISIBLE);
         Integer cinemaId = Integer.parseInt(getIntent().getStringExtra("CINEMA_ID"));
         String date = convertToDateString();
         sessions = dbConnector.getSessions(cinemaId, date);
         fromSessionsToFilmSessions(sessions);
 
-        // ---------------------- Sessions List View -----------------------------
+        // ---------------------- Sessions Recycler View -----------------------------
         recyclerView = findViewById(R.id.cinemaSessionsRecyclerView);
         recyclerView.setHasFixedSize(true);
 
@@ -105,6 +111,10 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
 
         recyclerViewAdapter = new CinemaSessionsRecyclerViewAdapter(filmSessions, this, CinemaSessions.this);
         recyclerView.setAdapter(recyclerViewAdapter);
+
+        if (filmSessions.size() == 0) {
+            tv_noFilms.setVisibility(View.VISIBLE);
+        }
     }
 
     private String convertToDateString() {
@@ -138,8 +148,9 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
     }
 
     @Override
-    public void onSessionItemClick(int position) { //!!!!!!!!!!!!!!!!!!!!
-        Intent intent = new Intent(CinemaSessions.this, CinemaList.class);
+    public void onSessionItemClick(int position, FilmSession filmSession) {
+        Intent intent = new Intent(CinemaSessions.this, SessionSeats.class);
+        intent.putExtra("SESSION_ID", filmSession.getSessions().get(position).getId().toString());
         startActivity(intent);
     }
 }

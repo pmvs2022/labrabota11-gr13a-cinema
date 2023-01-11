@@ -54,7 +54,7 @@ public class SessionsRecyclerViewAdapter extends RecyclerView.Adapter<SessionsRe
                         int pos = getAbsoluteAdapterPosition();
 
                         if (pos != RecyclerView.NO_POSITION) {
-                            recyclerViewInterface.onSessionItemClick(pos);
+                            recyclerViewInterface.onSessionItemClick(pos, filmSession);
                         }
                     }
                 }

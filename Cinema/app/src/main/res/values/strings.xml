@@ -1,28 +1,33 @@
 <resources>
     <string name="app_name">Tickets</string>
-    <string name="enter_login">Enter your login</string>
-    <string name="enter_password">Enter your password</string>
-    <string name="login">Login</string>
-    <string name="register">Register</string>
-    <string name="confirm_password">Confirm your password</string>
-    <string name="enter_valid_email">Enter valid email</string>
-    <string name="enter_valid_password">Password must contain at least 8 characters</string>
-    <string name="passwords_do_not_match">Passwords do not match</string>
-    <string name="not_valid_credentials">Credentials are not valid</string>
-    <string name="not_valid_data">Not valid data</string>
-    <string name="cinemaName">Cinema Name</string>
-    <string name="cinemaDescription">Cinema Description</string>
-    <string name="tv_cinemaName">Cinema Name</string>
+    <string name="enter_login">Введите логин</string>
+    <string name="enter_password">Введите пароль</string>
+    <string name="login">Войти</string>
+    <string name="register">Зарегистрироваться</string>
+    <string name="confirm_password">Подтвердите пароль</string>
+    <string name="enter_valid_email">Введите верный email</string>
+    <string name="enter_valid_password">Пароль должен содержать не менее 8 символов</string>
+    <string name="passwords_do_not_match">Пароли не совпадают</string>
+    <string name="not_valid_credentials">Данные не верны</string>
+    <string name="not_valid_data">Не верные данные</string>
+    <string name="cinemaName">Название кинотеатра</string>
+    <string name="cinemaDescription">Описание кинотеатра</string>
+    <string name="tv_cinemaName">Название кинотеатра</string>
     <string name="date">15.01.2023</string>
-    <string name="film_name">Film Name</string>
+    <string name="film_name">Название фильма</string>
 
-    <string name="default_movie_name">Avatar: Way of the Water</string>
+    <string name="default_movie_name">Аватар: Путь воды</string>
     <string name="default_year">2022</string>
-    <string name="default_country">USA</string>
-    <string name="genres">Genres:</string>
-    <string name="default_genres">action, adventure, fantasy</string>
-    <string name="director">Director:</string>
-    <string name="default_director">James Cameron</string>
-    <string name="default_overview">Set more than a decade after the events of the first film, learn the story of the Sully family (Jake, Neytiri, and their kids), the trouble that follows them, the lengths they go to keep each other safe, the battles they fight to stay alive, and the tragedies they endure.</string>
+    <string name="default_country">США</string>
+    <string name="genres">Жанры:</string>
+    <string name="default_genres">боевик, приключения, фэнтези</string>
+    <string name="director">Режиссер:</string>
+    <string name="default_director">Джеймс Кэмерон</string>
+    <string name="default_overview">Действие разворачивается более чем через десять лет после событий первого фильма, узнайте историю семьи Салли (Джейк, Нейтири и их дети), неприятности, которые преследуют их, на что они идут, чтобы обезопасить друг друга, битвы, которые они ведут, чтобы остаться в живых, и трагедии, которые они переживают.</string>
+
     <string name="time">00:00</string>
+    <string name="no_film">Нет подходящих фильмов</string>
+    <string name="screen">ЭКРАН</string>
+    <string name="seat">0</string>
+    <string name="row">0</string>
 </resources>

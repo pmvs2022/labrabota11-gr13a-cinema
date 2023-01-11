@@ -24,6 +24,20 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="10dp" />
 
+    <TextView
+        android:id="@+id/tv_noFilms"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_picker"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/prompt_regular"
+        android:text="@string/no_film"
+        android:textColor="@color/black"
+        android:textSize="16dp"
+        android:textStyle="italic"
+        android:visibility="invisible" />
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cinemaSessionsRecyclerView"
         android:layout_width="match_parent"
