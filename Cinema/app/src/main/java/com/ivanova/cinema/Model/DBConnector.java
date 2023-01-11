@@ -1,5 +1,7 @@
 package com.ivanova.cinema.Model;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,7 +27,7 @@ public class DBConnector {
             dbOpenHelper = new DBOpenHelper(context);
             db = null;
         }
-        if(db == null){
+        if (db == null) {
             try {
                 db = dbOpenHelper.getWritableDatabase();
             } catch (SQLException exc) {
@@ -45,7 +47,15 @@ public class DBConnector {
                 null,
                 null
         );
-        return cursor.getCount() != 0;
+
+        boolean successful = cursor.getCount() != 0;
+        if (successful) {
+            SharedPreferences pref = context.getSharedPreferences("user_login", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("login", login);
+            editor.commit();
+        }
+        return successful;
     }
 
     public boolean registerUser(String login, String password) {
@@ -66,6 +76,11 @@ public class DBConnector {
         } finally {
             db.endTransaction();
         }
+
+        SharedPreferences pref = context.getSharedPreferences("user_login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("login", login);
+        editor.commit();
         return insertSuccessful;
     }
 
@@ -309,7 +324,7 @@ public class DBConnector {
     }
 
     private Integer getCurrentUserId() {
-        SharedPreferences pref = context.getSharedPreferences("user_login", Context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences("user_login", MODE_PRIVATE);
         String curUserLogin = pref.getString("login", "");
 
         Cursor cursor = db.query(
