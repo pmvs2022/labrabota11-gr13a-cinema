@@ -7,14 +7,16 @@ public class Session {
     private Integer hallId;
     private Integer filmId;
     private String filmName;
+    private String filmApiId;
 
-    public Session(Integer id, String date, String time, Integer hallId, Integer filmId, String filmName) {
+    public Session(Integer id, String date, String time, Integer hallId, Integer filmId, String filmName, String filmApiId) {
         this.id = id;
         this.date = date;
         this.time = time;
         this.hallId = hallId;
         this.filmId = filmId;
         this.filmName = filmName;
+        this.filmApiId = filmApiId;
     }
 
     public Integer getId() {
@@ -63,5 +65,13 @@ public class Session {
 
     public void setFilmName(String filmName) {
         this.filmName = filmName;
+    }
+
+    public String getFilmApiId() {
+        return filmApiId;
+    }
+
+    public void setFilmApiId(String filmApiID) {
+        this.filmApiId = filmApiID;
     }
 }
