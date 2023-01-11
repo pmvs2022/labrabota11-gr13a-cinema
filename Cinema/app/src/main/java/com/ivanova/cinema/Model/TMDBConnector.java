@@ -49,7 +49,7 @@ public class TMDBConnector {
         this.movie_id = id;
 
         String request = "https://api.themoviedb.org/3/movie/" + id
-                + "?api_key=" + apiKey + "&language=en-US";
+                + "?api_key=" + apiKey + "&language=ru-RU";
 
         this.activity = activity;
         this.lifecycle = lifecycle;
@@ -63,13 +63,13 @@ public class TMDBConnector {
     public void getTrailer() {
         GetMovieTrailer getMovieTrailer = new GetMovieTrailer();
         getMovieTrailer.execute("https://api.themoviedb.org/3/movie/"+ movie_id
-                + "/videos?api_key=" + apiKey + "&language=en-US");
+                + "/videos?api_key=" + apiKey + "&language=ru-RU");
     }
 
     public void getBackdrops() {
         GetMovieBackdrops getMovieBackdrops = new GetMovieBackdrops();
         getMovieBackdrops.execute("https://api.themoviedb.org/3/movie/" + movie_id
-                + "/images?api_key=" + apiKey + "&language=en-US");
+                + "/images?api_key=" + apiKey + "&language=ru-RU");
     }
 
     public Movie getMovie() {
