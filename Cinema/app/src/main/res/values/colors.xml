@@ -7,6 +7,7 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="black_60">#99000000</color>
+    <color name="black_20">#33000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="light_salmon">#ffa07a</color>
     <color name="coral">#ff7f50</color>
@@ -14,4 +15,5 @@
     <color name="coral_80">#CCFF7F50</color>
     <color name="orange_red">#ff4500</color>
     <color name="navajo_white">#CCFFA07A</color>
+    <color name="red">#FF0000</color>
 </resources>

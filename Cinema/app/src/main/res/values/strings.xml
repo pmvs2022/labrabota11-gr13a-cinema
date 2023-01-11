@@ -30,4 +30,13 @@
     <string name="screen">ЭКРАН</string>
     <string name="seat">0</string>
     <string name="row">0</string>
+    <string name="do_you_want_to_buy_a_ticket">Вы точно хотите приобести\nданный билет?</string>
+    <string name="session">Сеанс</string>
+    <string name="price">Цена</string>
+    <string name="place">Место</string>
+    <string name="rowName">Ряд</string>
+    <string name="hall">Зал</string>
+    <string name="buy">Купить</string>
+    <string name="cancel">Отменить</string>
+    <string name="smth_went_wrong">Что-то пошло не так...</string>
 </resources>

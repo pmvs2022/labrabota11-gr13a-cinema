@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.ivanova.cinema.Model.Entities.Seat;
+import com.ivanova.cinema.Model.Entities.SeatUI;
 import com.ivanova.cinema.R;
 
 import java.util.ArrayList;
@@ -17,9 +18,9 @@ public class SeatRowRecyclerViewAdapter extends RecyclerView.Adapter<SeatRowRecy
 
     private final SeatRecyclerViewInterface recyclerViewInterface;
 
-    ArrayList<Seat> rowSeats;
+    ArrayList<SeatUI> rowSeats;
 
-    public SeatRowRecyclerViewAdapter(ArrayList<Seat> rowSeats, SeatRecyclerViewInterface recyclerViewInterface) {
+    public SeatRowRecyclerViewAdapter(ArrayList<SeatUI> rowSeats, SeatRecyclerViewInterface recyclerViewInterface) {
         this.rowSeats = rowSeats;
         this.recyclerViewInterface = recyclerViewInterface;
     }
@@ -35,6 +36,9 @@ public class SeatRowRecyclerViewAdapter extends RecyclerView.Adapter<SeatRowRecy
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.tv_seat.setText(rowSeats.get(position).getSeatNumber().toString());
+        if (!rowSeats.get(position).getFree()) {
+            holder.tv_seat.setBackgroundResource(R.drawable.tv_bought_seat);
+        }
     }
 
     @Override
@@ -55,8 +59,8 @@ public class SeatRowRecyclerViewAdapter extends RecyclerView.Adapter<SeatRowRecy
                     if (recyclerViewInterface != null) {
                         int pos = getAbsoluteAdapterPosition();
 
-                        if (pos != RecyclerView.NO_POSITION) {
-                            recyclerViewInterface.onSeatItemClick(pos);
+                        if (pos != RecyclerView.NO_POSITION && rowSeats.get(pos).getFree()) {
+                            recyclerViewInterface.onSeatItemClick(pos, rowSeats.get(pos));
                         }
                     }
                 }

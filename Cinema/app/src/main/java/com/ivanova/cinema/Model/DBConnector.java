@@ -423,7 +423,7 @@ public class DBConnector {
         return seat;
     }
 
-    private Session getSession(Integer sessionId) {
+    public Session getSession(Integer sessionId) {
         String sessionMovieJoin = "session join movie using(movie_id)";
         String[] selectedColumns = new String[]{
                 "session_id",
