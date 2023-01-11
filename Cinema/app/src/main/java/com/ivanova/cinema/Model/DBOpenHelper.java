@@ -551,15 +551,40 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             // Фильмы
             cv.put("movie_id", 1);
             cv.put("title", "Аватар: путь воды");
-            cv.put("movie_api_id", "76600-avatar-the-way-of-water");
+            cv.put("movie_api_id", "76600");
             db.insert("movie", null, cv);
             cv.clear();
 
             cv.put("movie_id", 2);
-            cv.put("title", "Кот в сапогах 2: Последнее желание ");
-            cv.put("movie_api_id", "315162-puss-in-boots-the-last-wish");
+            cv.put("title", "Кот в сапогах 2: Последнее желание");
+            cv.put("movie_api_id", "315162");
             db.insert("movie", null, cv);
             cv.clear();
+
+            cv.put("movie_id", 3);
+            cv.put("title", "Фантастические твари: Тайны Дамблдора");
+            cv.put("movie_api_id", "338953");
+            db.insert("movie", null, cv);
+            cv.clear();
+
+            cv.put("movie_id", 4);
+            cv.put("title", "Чебурашка");
+            cv.put("movie_api_id", "751171");
+            db.insert("movie", null, cv);
+            cv.clear();
+
+            cv.put("movie_id", 5);
+            cv.put("title", "Двойной обман Мадлен Коллинз");
+            cv.put("movie_api_id", "659988");
+            db.insert("movie", null, cv);
+            cv.clear();
+
+            cv.put("movie_id", 6);
+            cv.put("title", "Белль и Себастьян: Новое поколение");
+            cv.put("movie_api_id", "893364");
+            db.insert("movie", null, cv);
+            cv.clear();
+
 
             // сеансы
             cv.put("session_id",1);

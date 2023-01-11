@@ -1,5 +1,7 @@
 package com.ivanova.cinema.Model;
 
+import static android.content.Context.MODE_PRIVATE;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -25,7 +27,7 @@ public class DBConnector {
             dbOpenHelper = new DBOpenHelper(context);
             db = null;
         }
-        if(db == null){
+        if (db == null) {
             try {
                 db = dbOpenHelper.getWritableDatabase();
             } catch (SQLException exc) {
@@ -45,7 +47,15 @@ public class DBConnector {
                 null,
                 null
         );
-        return cursor.getCount() != 0;
+
+        boolean successful = cursor.getCount() != 0;
+        if (successful) {
+            SharedPreferences pref = context.getSharedPreferences("user_login", MODE_PRIVATE);
+            SharedPreferences.Editor editor = pref.edit();
+            editor.putString("login", login);
+            editor.commit();
+        }
+        return successful;
     }
 
     public boolean registerUser(String login, String password) {
@@ -66,6 +76,11 @@ public class DBConnector {
         } finally {
             db.endTransaction();
         }
+
+        SharedPreferences pref = context.getSharedPreferences("user_login", MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("login", login);
+        editor.commit();
         return insertSuccessful;
     }
 
@@ -108,7 +123,9 @@ public class DBConnector {
                 "time",
                 "session.hall_id as hall_id",
                 "movie_id",
-                "movie.title as movie_title"};
+                "movie.title as movie_title",
+                "movie_api_id"
+        };
 
         Cursor cursor = db.query(
                 tableJoin,
@@ -125,6 +142,7 @@ public class DBConnector {
         int hallIdColIndex = cursor.getColumnIndex("hall_id");
         int movieIdColIndex = cursor.getColumnIndex("movie_id");
         int movieTitleColIndex = cursor.getColumnIndex("movie_title");
+        int movieApiIDColIndex = cursor.getColumnIndex("movie_api_id");
 
         ArrayList<Session> sessionList = new ArrayList<>();
         Session nextSession;
@@ -137,7 +155,8 @@ public class DBConnector {
                         cursor.getString(timeColIndex),
                         cursor.getInt(hallIdColIndex),
                         cursor.getInt(movieIdColIndex),
-                        cursor.getString(movieTitleColIndex));
+                        cursor.getString(movieTitleColIndex),
+                        cursor.getString(movieApiIDColIndex));
                 sessionList.add(nextSession);
             } while (cursor.moveToNext());
         }
@@ -266,6 +285,25 @@ public class DBConnector {
         return myTicketsList;
     }
 
+    public String getMovieApiId(Integer movieID){
+        Cursor cursor = db.query(
+                "movie",
+                new String[]{"movie_api_id"},
+                "movie_id = ?",
+                new String[]{movieID.toString()},
+                null,
+                null,
+                null
+        );
+
+        int movieApiIdColIndex = cursor.getColumnIndex("movie_api_id");
+        String movieApiId = "";
+        if(cursor.moveToFirst()){
+            movieApiId = cursor.getString(movieApiIdColIndex);
+        }
+        return movieApiId;
+    }
+
     private boolean loginExists(String login) {
         Cursor cursor = db.query(
                 "user",
@@ -309,7 +347,7 @@ public class DBConnector {
     }
 
     private Integer getCurrentUserId() {
-        SharedPreferences pref = context.getSharedPreferences("user_login", Context.MODE_PRIVATE);
+        SharedPreferences pref = context.getSharedPreferences("user_login", MODE_PRIVATE);
         String curUserLogin = pref.getString("login", "");
 
         Cursor cursor = db.query(
@@ -393,7 +431,9 @@ public class DBConnector {
                 "time",
                 "hall_id",
                 "movie_id",
-                "movie.title as movie_title"};
+                "movie.title as movie_title",
+                "movie_api_id"
+        };
 
         Cursor cursor = db.query(
                 sessionMovieJoin,
@@ -410,6 +450,7 @@ public class DBConnector {
         int hallIdColIndex = cursor.getColumnIndex("hall_id");
         int movieIdColIndex = cursor.getColumnIndex("movie_id");
         int movieTitleColIndex = cursor.getColumnIndex("movie_title");
+        int movieApiIdColIndex = cursor.getColumnIndex("movie_api_id");
 
         Session session = null;
 
@@ -420,7 +461,8 @@ public class DBConnector {
                     cursor.getString(timeColIndex),
                     cursor.getInt(hallIdColIndex),
                     cursor.getInt(movieIdColIndex),
-                    cursor.getString(movieTitleColIndex));
+                    cursor.getString(movieTitleColIndex),
+                    cursor.getString(movieApiIdColIndex));
         }
         cursor.close();
         return session;

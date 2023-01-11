@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/tv_sessionTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/tv_session_time_ripple"
+        android:fontFamily="@font/prompt_regular"
+        android:paddingHorizontal="18dp"
+        android:paddingVertical="8dp"
+        android:text="@string/time"
+        android:textColor="@color/white"
+        android:textSize="18dp" />
+
+</FrameLayout>
