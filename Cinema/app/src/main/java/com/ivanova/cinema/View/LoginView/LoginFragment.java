@@ -63,8 +63,8 @@ public class LoginFragment extends Fragment {
         }
 
         if (!login.getText().toString().isEmpty() && !password.getText().toString().isEmpty()) {
-            if (login.getText().toString().matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+")) {
-                if (password.getText().toString().length() >= 8) {
+            if (isValidLogin(login.getText().toString())) {
+                if (isValidPassword(password.getText().toString())) {
                     signIn();
 
                 } else {
@@ -75,6 +75,14 @@ public class LoginFragment extends Fragment {
                 login.setError(getString(R.string.enter_valid_email), icon);
             }
         }
+    }
+
+    public static boolean isValidLogin(String str) {
+        return str.matches("[a-zA-Z0-9._-]+@[a-z]+\\.+[a-z]+");
+    }
+
+    public static boolean isValidPassword(String str) {
+        return str.length() >= 8;
     }
 
     private void signIn() {

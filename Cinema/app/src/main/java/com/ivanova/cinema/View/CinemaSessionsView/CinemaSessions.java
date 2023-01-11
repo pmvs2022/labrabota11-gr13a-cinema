@@ -94,7 +94,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         sessions = dbConnector.getSessions(Integer.parseInt(getIntent().getStringExtra("CINEMA_ID")),
                 convertToDateString(dayPicked, monthPicked, yearPicked));
         Integer cinemaId = Integer.parseInt(getIntent().getStringExtra("CINEMA_ID"));
-        String date = convertToDateString();
+        String date = convertToDateString(dayPicked, monthPicked, yearPicked);
         sessions = dbConnector.getSessions(cinemaId, date);
         fromSessionsToFilmSessions(sessions);
 
