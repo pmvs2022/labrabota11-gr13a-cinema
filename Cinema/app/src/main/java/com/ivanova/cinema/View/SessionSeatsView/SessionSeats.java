@@ -100,7 +100,7 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
         intent.putExtra("SEAT_ID", seat.getId().toString());
         intent.putExtra("SESSION_ID", String.valueOf(sessionId));
 
-        intent.putExtra("CINEMA_NAME", "Название кинотеатра"); //!!!!!!!!!!!!!!!!!!!!!!!!!!
+        intent.putExtra("CINEMA_NAME", dbConnector.getCinemaName(seat.getHallId()));
         intent.putExtra("FILM_NAME", session.getFilmName());
 
         intent.putExtra("DATE", session.getDate());
@@ -109,7 +109,7 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
         intent.putExtra("PRICE", seat.getPrice().toString());
         intent.putExtra("ROW", seat.getSeatRow().toString());
         intent.putExtra("PLACE", seat.getSeatNumber().toString());
-        intent.putExtra("HALL", "0"); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        intent.putExtra("HALL", dbConnector.getHallName(seat.getHallId()));
 
         startActivity(intent);
     }
