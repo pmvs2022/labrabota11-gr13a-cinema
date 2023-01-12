@@ -35,6 +35,7 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
     private RecyclerView.LayoutManager layoutManager;
 
     @Override
+    @SuppressWarnings("InvalidSetHasFixedSize")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session_seats);

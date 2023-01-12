@@ -40,6 +40,7 @@ public class SessionSeatsRecyclerViewAdapter extends RecyclerView.Adapter<Sessio
     }
 
     @Override
+    @SuppressWarnings("InvalidSetHasFixedSize")
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.recView_seats.setHasFixedSize(true);
 
