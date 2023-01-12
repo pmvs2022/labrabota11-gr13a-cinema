@@ -51,9 +51,14 @@ jobs:
           name: app-debug-androidTest
  
       - name: Firebase auth with gcloud
+        uses: google-github-actions/auth@v1
+        with:
+          credentials_json: ${{ secrets.FIREBASE_KEY }}
+          project_id: ${{ secrets.PROJECT_ID }}
+          
+      - name: SetUp
         uses: google-github-actions/setup-gcloud@v1
         with:
-          service_account_key: ${{ secrets.FIREBASE_KEY }}
           project_id: ${{ secrets.PROJECT_ID }}
  
       - name: Run Instrumentation Tests in Firebase Test Lab
