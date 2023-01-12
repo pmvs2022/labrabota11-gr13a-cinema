@@ -1,163 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/gradient_background">
 
-    <LinearLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="20dp">
-
-        <ImageView
-            android:id="@+id/poster"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            tools:srcCompat="@tools:sample/avatars" />
-
-        <TextView
-            android:id="@+id/movieNameTxtField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:fontFamily="@font/prompt_bold"
-            android:text="@string/default_movie_name"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="26sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/yearTxtField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:fontFamily="@font/prompt_bold"
-            android:text="@string/default_year"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/countryTxtField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:fontFamily="@font/prompt_bold"
-            android:text="@string/default_country"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold" />
+        android:layout_height="match_parent"
+        android:layout_above="@id/menuLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:orientation="vertical"
+            android:padding="20dp">
+
+            <ImageView
+                android:id="@+id/poster"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                tools:srcCompat="@tools:sample/avatars" />
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/movieNameTxtField"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginEnd="8dp"
-                android:fontFamily="@font/prompt_regular"
-                android:text="@string/genres"
+                android:layout_marginTop="10dp"
+                android:fontFamily="@font/prompt_bold"
+                android:text="@string/default_movie_name"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="26sp"
+                android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/genresTxtField"
-                android:layout_width="wrap_content"
+                android:id="@+id/yearTxtField"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/prompt_regular"
-                android:text="@string/default_genres"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/prompt_bold"
+                android:text="@string/default_year"
+                android:textAlignment="center"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
-        </LinearLayout>
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="wrap_content"-->
-        <!--            android:orientation="horizontal">-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="@string/director"-->
-        <!--                android:layout_marginEnd="8dp"-->
-        <!--                android:textSize="22sp"-->
-        <!--                />-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="@string/default_director"-->
-        <!--                android:textSize="22sp"-->
-        <!--                />-->
-
-        <!--        </LinearLayout>-->
-
-        <TextView
-            android:id="@+id/overviewTxtField"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginVertical="10dp"
-            android:fontFamily="@font/prompt_regular"
-            android:text="@string/default_overview"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <HorizontalScrollView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/countryTxtField"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/prompt_bold"
+                android:text="@string/default_country"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold" />
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:id="@+id/image1"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="5dp"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:layout_marginEnd="8dp"
+                    android:fontFamily="@font/prompt_regular"
+                    android:text="@string/genres"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
 
-                <ImageView
-                    android:id="@+id/image2"
-                    android:layout_width="match_parent"
+                <TextView
+                    android:id="@+id/genresTxtField"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="5dp"
-                    tools:srcCompat="@tools:sample/avatars" />
+                    android:fontFamily="@font/prompt_regular"
+                    android:text="@string/default_genres"
+                    android:textColor="@color/black"
+                    android:textSize="22sp" />
 
-                <ImageView
-                    android:id="@+id/image3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:layout_margin="5dp"
-                    tools:srcCompat="@tools:sample/avatars" />
             </LinearLayout>
-        </HorizontalScrollView>
 
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:app="http://schemas.android.com/apk/res-auto"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
+            <!--        <LinearLayout-->
+            <!--            android:layout_width="match_parent"-->
+            <!--            android:layout_height="wrap_content"-->
+            <!--            android:orientation="horizontal">-->
 
-            <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
-                android:id="@+id/youtube_player_view"
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="@string/director"-->
+            <!--                android:layout_marginEnd="8dp"-->
+            <!--                android:textSize="22sp"-->
+            <!--                />-->
+
+            <!--            <TextView-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:text="@string/default_director"-->
+            <!--                android:textSize="22sp"-->
+            <!--                />-->
+
+            <!--        </LinearLayout>-->
+
+            <TextView
+                android:id="@+id/overviewTxtField"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:autoPlay="false" />
+                android:layout_marginVertical="10dp"
+                android:fontFamily="@font/prompt_regular"
+                android:text="@string/default_overview"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <HorizontalScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:id="@+id/image1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/image2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+
+                    <ImageView
+                        android:id="@+id/image3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_margin="5dp"
+                        tools:srcCompat="@tools:sample/avatars" />
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <com.pierfrancescosoffritti.androidyoutubeplayer.core.player.views.YouTubePlayerView
+                    android:id="@+id/youtube_player_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:autoPlay="false" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+
+    </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/my_menu" />
+    </FrameLayout>
+</RelativeLayout>

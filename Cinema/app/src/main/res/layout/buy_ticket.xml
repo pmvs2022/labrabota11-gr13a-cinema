@@ -224,4 +224,13 @@
         android:textStyle="italic"
         android:visibility="invisible" />
 
+    <FrameLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/my_menu" />
+    </FrameLayout>
+
 </RelativeLayout>

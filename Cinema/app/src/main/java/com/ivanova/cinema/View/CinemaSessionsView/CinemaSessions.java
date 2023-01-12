@@ -2,22 +2,29 @@ package com.ivanova.cinema.View.CinemaSessionsView;
 
 import android.app.DatePickerDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.ivanova.cinema.Model.DBConnector;
 import com.ivanova.cinema.Model.Entities.FilmSession;
 import com.ivanova.cinema.Model.Entities.Session;
 import com.ivanova.cinema.R;
 import com.ivanova.cinema.View.CinemaListView.CinemaList;
+import com.ivanova.cinema.View.LoginView.Login;
 import com.ivanova.cinema.View.MovieActivity;
+import com.ivanova.cinema.View.MyTicketsView.MyTickets;
 import com.ivanova.cinema.View.SessionSeatsView.SessionSeats;
 
 import java.text.ParseException;
@@ -29,6 +36,9 @@ import java.util.HashMap;
 import java.util.List;
 
 public class CinemaSessions extends AppCompatActivity implements CinemaSessionsRecyclerViewInterface, SessionsRecyclerViewInterface {
+
+    private BottomNavigationView menu;
+    private SharedPreferences pref;
 
     private TextView tv_cinemaName;
     private TextView tv_date;
@@ -54,6 +64,9 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.cinema_sessions);
+
+        pref = getSharedPreferences("user_login", MODE_PRIVATE);
+        setUpMenu();
 
         dbConnector = new DBConnector(getApplicationContext());
 
@@ -153,5 +166,37 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         Intent intent = new Intent(CinemaSessions.this, SessionSeats.class);
         intent.putExtra("SESSION_ID", filmSession.getSessions().get(position).getId().toString());
         startActivity(intent);
+    }
+
+    private void setUpMenu() {
+        // ---------------------- Menu -----------------------------
+        menu = findViewById(R.id.bottomNavigation);
+        menu.getMenu().setGroupCheckable(0, false, true);
+        menu.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.cinemasItem: {
+                        Intent intent = new Intent(CinemaSessions.this, CinemaList.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.myTicketsItem: {
+                        Intent intent = new Intent(CinemaSessions.this, MyTickets.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.exitItem: {
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.clear();
+                        editor.commit();
+                        Intent intent = new Intent(CinemaSessions.this, Login.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                }
+                return true;
+            }
+        });
     }
 }

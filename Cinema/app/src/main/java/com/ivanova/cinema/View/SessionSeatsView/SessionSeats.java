@@ -1,12 +1,17 @@
 package com.ivanova.cinema.View.SessionSeatsView;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.MenuItem;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarView;
 import com.ivanova.cinema.Model.DBConnector;
 import com.ivanova.cinema.Model.Entities.Seat;
 import com.ivanova.cinema.Model.Entities.SeatUI;
@@ -15,6 +20,8 @@ import com.ivanova.cinema.R;
 import com.ivanova.cinema.View.BuyTicket;
 import com.ivanova.cinema.View.CinemaListView.CinemaList;
 import com.ivanova.cinema.View.CinemaSessionsView.CinemaSessions;
+import com.ivanova.cinema.View.LoginView.Login;
+import com.ivanova.cinema.View.MyTicketsView.MyTickets;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -23,6 +30,9 @@ import java.util.Map;
 import java.util.TreeMap;
 
 public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewInterface {
+
+    private BottomNavigationView menu;
+    private SharedPreferences pref;
 
     private DBConnector dbConnector;
 
@@ -39,6 +49,9 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.session_seats);
+
+        pref = getSharedPreferences("user_login", MODE_PRIVATE);
+        setUpMenu();
 
         Integer sessionId = Integer.parseInt(getIntent().getStringExtra("SESSION_ID"));
         dbConnector = new DBConnector(getApplicationContext());
@@ -112,5 +125,37 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
         intent.putExtra("HALL", dbConnector.getHallName(seat.getHallId()));
 
         startActivity(intent);
+    }
+
+    private void setUpMenu() {
+        // ---------------------- Menu -----------------------------
+        menu = findViewById(R.id.bottomNavigation);
+        menu.getMenu().setGroupCheckable(0, false, true);
+        menu.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.cinemasItem: {
+                        Intent intent = new Intent(SessionSeats.this, CinemaList.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.myTicketsItem: {
+                        Intent intent = new Intent(SessionSeats.this, MyTickets.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                    case R.id.exitItem: {
+                        SharedPreferences.Editor editor = pref.edit();
+                        editor.clear();
+                        editor.commit();
+                        Intent intent = new Intent(SessionSeats.this, Login.class);
+                        startActivity(intent);
+                        return true;
+                    }
+                }
+                return true;
+            }
+        });
     }
 }

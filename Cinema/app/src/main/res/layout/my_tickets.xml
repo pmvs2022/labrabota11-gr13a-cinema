@@ -19,9 +19,19 @@
         android:id="@+id/myTicketsRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@id/menuLayout"
         android:layout_below="@id/tv_myTickets"
         android:layout_marginTop="20dp"
         android:divider="@null"
         android:dividerHeight="0dp" />
+
+    <FrameLayout
+        android:id="@+id/menuLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+
+        <include layout="@layout/my_menu" />
+    </FrameLayout>
 
 </RelativeLayout>
