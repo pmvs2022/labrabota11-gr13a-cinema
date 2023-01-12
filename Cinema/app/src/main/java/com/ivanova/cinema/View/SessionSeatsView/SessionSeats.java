@@ -150,6 +150,7 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
                         editor.clear();
                         editor.commit();
                         Intent intent = new Intent(SessionSeats.this, Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         return true;
                     }

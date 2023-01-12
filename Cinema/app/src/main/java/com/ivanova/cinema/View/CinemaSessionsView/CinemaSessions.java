@@ -191,6 +191,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
                         editor.clear();
                         editor.commit();
                         Intent intent = new Intent(CinemaSessions.this, Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         return true;
                     }

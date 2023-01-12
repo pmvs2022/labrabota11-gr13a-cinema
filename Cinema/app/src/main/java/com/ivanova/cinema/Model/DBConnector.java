@@ -247,8 +247,8 @@ public class DBConnector {
             cv.put("seat_id", seatId);
             cv.put("user_id", curUserId);
 
-            db.setTransactionSuccessful();
             buySuccessfully = db.insert("ticket", null, cv) != -1;
+            db.setTransactionSuccessful();
         } finally {
             db.endTransaction();
         }
