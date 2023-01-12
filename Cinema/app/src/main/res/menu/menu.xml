@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/cinemasItem"
+        android:icon="@drawable/cinema_icon"
+        android:title="@string/cinemas"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/myTicketsItem"
+        android:icon="@drawable/ticket"
+        android:title="@string/my_tickets"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/exitItem"
+        android:icon="@drawable/logout"
+        android:title="@string/exit"
+        app:showAsAction="always" />
+
+</menu>
