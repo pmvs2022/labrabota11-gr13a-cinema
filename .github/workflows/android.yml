@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  Unit-test:
-    name: Run unit test in main
+  build_apk_aab:
+    name: Build release artifacts
     runs-on: ubuntu-20.04
   
     steps:
@@ -16,6 +16,21 @@ jobs:
       - uses: actions/setup-java@v1
         with: 
           java-version: '11'
-      - name: Run unit tests
+      - name: Build release APK and AAB after test
         working-directory: ./Cinema
-        run: ./gradlew test
+        run: |
+         ./gradlew test
+         ./gradlew assembleRelease
+         ./gradlew bundleRelease
+         
+      - name: Upload APK
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release.apk
+          path: Cinema/app/build/outputs/apk/release/app-release-unsigned.apk
+          
+      - name: Upload AAB Bundle
+        uses: actions/upload-artifact@v2
+        with:
+          name: app-release.aab
+          path: Cinema/app/build/outputs/bundle/release/app-release.aab
