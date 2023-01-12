@@ -1,5 +1,6 @@
 package com.ivanova.cinema.View;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -8,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.ivanova.cinema.Model.DBConnector;
 import com.ivanova.cinema.R;
+import com.ivanova.cinema.View.CinemaListView.CinemaList;
+import com.ivanova.cinema.View.CinemaSessionsView.CinemaSessions;
+import com.ivanova.cinema.View.MyTicketsView.MyTickets;
 
 public class BuyTicket extends AppCompatActivity {
 
@@ -61,7 +65,8 @@ public class BuyTicket extends AppCompatActivity {
 
         if (dbConnector.buyTicket(seatId, sessionId)) {
             tv_error.setVisibility(View.INVISIBLE);
-            //!!!!!!!!!
+            Intent intent = new Intent(BuyTicket.this, MyTickets.class);
+            startActivity(intent);
 
         } else {
             tv_error.setVisibility(View.VISIBLE);
