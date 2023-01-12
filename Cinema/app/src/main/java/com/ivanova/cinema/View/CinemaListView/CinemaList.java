@@ -89,6 +89,7 @@ public class CinemaList extends AppCompatActivity implements CinemaListRecyclerV
                         editor.clear();
                         editor.commit();
                         Intent intent = new Intent(CinemaList.this, Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         return true;
                     }

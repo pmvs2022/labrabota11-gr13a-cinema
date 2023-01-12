@@ -108,6 +108,7 @@ public class BuyTicket extends AppCompatActivity {
                         editor.clear();
                         editor.commit();
                         Intent intent = new Intent(BuyTicket.this, Login.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
                         return true;
                     }

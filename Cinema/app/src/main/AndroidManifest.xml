@@ -19,7 +19,8 @@
 
         <activity
             android:name=".View.LoginView.Login"
-            android:exported="true">
+            android:exported="true"
+            android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,7 +36,7 @@
         <activity android:name=".View.CinemaSessionsView.CinemaSessions" />
         <activity android:name=".View.MovieActivity"/>
         <activity android:name=".View.SessionSeatsView.SessionSeats"/>
-        <activity android:name=".View.BuyTicket"/>
+        <activity android:name=".View.BuyTicket" android:noHistory="true"/>
         <activity android:name=".View.MyTicketsView.MyTickets"/>
     </application>
 

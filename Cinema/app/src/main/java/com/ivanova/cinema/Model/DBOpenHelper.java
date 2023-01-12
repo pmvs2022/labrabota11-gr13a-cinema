@@ -139,7 +139,7 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             cv.clear();
 
             cv.put("hall_id", 3);
-            cv.put("title", "vip зал");
+            cv.put("title", "vip-зал");
             cv.put("cinema_id", 1);
             db.insert("hall", null, cv);
             cv.clear();
@@ -585,85 +585,292 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             db.insert("movie", null, cv);
             cv.clear();
 
-
             // сеансы
             cv.put("session_id",1);
-            cv.put("date", "25.01.2023");
+            cv.put("date", "15.01.2023");
             cv.put("time", "15:00");
             cv.put("hall_id", 1);
-            cv.put("movie_id", 1);
+            cv.put("movie_id", 6);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",2);
-            cv.put("date", "25.01.2023");
+            cv.put("date", "15.01.2023");
             cv.put("time", "18:30");
             cv.put("hall_id", 1);
-            cv.put("movie_id", 1);
+            cv.put("movie_id", 6);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",3);
-            cv.put("date", "26.01.2023");
-            cv.put("time", "17:00");
+            cv.put("date", "15.01.2023");
+            cv.put("time", "20:30");
             cv.put("hall_id", 1);
-            cv.put("movie_id", 1);
+            cv.put("movie_id", 5);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",4);
-            cv.put("date", "26.01.2023");
-            cv.put("time", "20:30");
-            cv.put("hall_id", 1);
-            cv.put("movie_id", 1);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "12:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 4);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",5);
-            cv.put("date", "26.01.2023");
-            cv.put("time", "10:00");
-            cv.put("hall_id", 4);
-            cv.put("movie_id", 1);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "15:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 4);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",6);
-            cv.put("date", "26.01.2023");
-            cv.put("time", "14:00");
-            cv.put("hall_id", 4);
-            cv.put("movie_id", 1);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "17:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 2);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",7);
-            cv.put("date", "27.01.2023");
-            cv.put("time", "10:00");
-            cv.put("hall_id", 4);
-            cv.put("movie_id", 1);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "19:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 3);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",8);
-            cv.put("date", "25.01.2023");
-            cv.put("time", "12:00");
+            cv.put("date", "15.01.2023");
+            cv.put("time", "21:00");
             cv.put("hall_id", 2);
-            cv.put("movie_id", 2);
+            cv.put("movie_id", 3);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",9);
-            cv.put("date", "25.01.2023");
+            cv.put("date", "15.01.2023");
             cv.put("time", "18:00");
-            cv.put("hall_id", 2);
-            cv.put("movie_id", 2);
+            cv.put("hall_id", 3);
+            cv.put("movie_id", 1);
             db.insert("session", null, cv);
             cv.clear();
 
             cv.put("session_id",10);
-            cv.put("date", "26.01.2023");
+            cv.put("date", "15.01.2023");
+            cv.put("time", "21:30");
+            cv.put("hall_id", 3);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",11);
+            cv.put("date", "15.01.2023");
             cv.put("time", "12:00");
-            cv.put("hall_id", 2);
+            cv.put("hall_id", 4);
             cv.put("movie_id", 2);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",12);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "14:00");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 2);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",13);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "17:00");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 6);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",14);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "19:30");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 6);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",15);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "21:00");
+            cv.put("hall_id", 5);
+            cv.put("movie_id", 5);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",16);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "23:30");
+            cv.put("hall_id", 5);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",16);
+            cv.put("date", "15.01.2023");
+            cv.put("time", "23:30");
+            cv.put("hall_id", 5);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",17);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "15:00");
+            cv.put("hall_id", 1);
+            cv.put("movie_id", 2);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",18);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "18:00");
+            cv.put("hall_id", 1);
+            cv.put("movie_id", 2);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",19);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "21:00");
+            cv.put("hall_id", 1);
+            cv.put("movie_id", 3);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",20);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "16:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 3);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",21);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "18:30");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",22);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "21:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",23);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "18:00");
+            cv.put("hall_id", 3);
+            cv.put("movie_id", 5);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",24);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "21:00");
+            cv.put("hall_id", 3);
+            cv.put("movie_id", 5);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",25);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "13:00");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 4);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",26);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "15:30");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 4);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",27);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "18:00");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 3);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",28);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "21:30");
+            cv.put("hall_id", 4);
+            cv.put("movie_id", 3);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",29);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "20:00");
+            cv.put("hall_id", 5);
+            cv.put("movie_id", 3);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",30);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "22:30");
+            cv.put("hall_id", 5);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",30);
+            cv.put("date", "16.01.2023");
+            cv.put("time", "01:00");
+            cv.put("hall_id", 5);
+            cv.put("movie_id", 1);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",31);
+            cv.put("date", "17.01.2023");
+            cv.put("time", "18:00");
+            cv.put("hall_id", 1);
+            cv.put("movie_id", 2);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",32);
+            cv.put("date", "17.01.2023");
+            cv.put("time", "21:00");
+            cv.put("hall_id", 1);
+            cv.put("movie_id", 2);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",33);
+            cv.put("date", "17.01.2023");
+            cv.put("time", "17:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 3);
+            db.insert("session", null, cv);
+            cv.clear();
+
+            cv.put("session_id",34);
+            cv.put("date", "17.01.2023");
+            cv.put("time", "20:00");
+            cv.put("hall_id", 2);
+            cv.put("movie_id", 3);
             db.insert("session", null, cv);
             cv.clear();
 
@@ -674,24 +881,23 @@ public class DBOpenHelper extends SQLiteOpenHelper {
             db.insert("user", null, cv);
             cv.clear();
 
+            cv.put("user_id", 2);
+            cv.put("login", "maria@gmail.com");
+            cv.put("password", "m_pswd_123");
+            db.insert("user", null, cv);
+            cv.clear();
+
             // tickets
             cv.put("ticket_id", 1);
-            cv.put("session_id", 1);
-            cv.put("seat_id", 3);
+            cv.put("session_id", 6);
+            cv.put("seat_id", 27);
             cv.put("user_id", 1);
             db.insert("ticket", null, cv);
             cv.clear();
 
             cv.put("ticket_id", 2);
-            cv.put("session_id", 1);
-            cv.put("seat_id", 4);
-            cv.put("user_id", 1);
-            db.insert("ticket", null, cv);
-            cv.clear();
-
-            cv.put("ticket_id", 3);
-            cv.put("session_id", 1);
-            cv.put("seat_id", 5);
+            cv.put("session_id", 6);
+            cv.put("seat_id", 28);
             cv.put("user_id", 1);
             db.insert("ticket", null, cv);
             cv.clear();
