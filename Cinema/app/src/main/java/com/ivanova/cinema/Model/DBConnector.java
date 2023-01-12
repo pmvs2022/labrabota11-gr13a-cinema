@@ -204,7 +204,7 @@ public class DBConnector {
     public ArrayList<Seat> getFreeSeats(Integer sessionId) {
         Integer hallId = getSessionHallId(sessionId);
         String sqlQuery = "select * from seat where hall_id = " + hallId.toString() + " and not exists "
-                + "( select * from ticket where seat_id = seat.seat_id );";
+                + "( select * from ticket where seat_id = seat.seat_id and session_id = " +sessionId.toString() +");";
         Cursor cursor = db.rawQuery(sqlQuery, null);
 
         int seatIdColIndex = cursor.getColumnIndex("seat_id");
