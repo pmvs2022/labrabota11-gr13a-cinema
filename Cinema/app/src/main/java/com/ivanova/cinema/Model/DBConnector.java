@@ -304,6 +304,60 @@ public class DBConnector {
         return movieApiId;
     }
 
+    public String getHallName(Integer hallId) {
+        Cursor cursor = db.query(
+                "hall",
+                new String[]{"title"},
+                "hall_id = ?",
+                new String[]{hallId.toString()},
+                null,
+                null,
+                null
+        );
+
+        int titleColIdx = cursor.getColumnIndex("title");
+        if (cursor.moveToFirst()) {
+            return cursor.getString(titleColIdx);
+        }
+        return null;
+    }
+
+    public String getCinemaName(Integer hallId) {
+        Cursor cursor = db.query(
+                "hall",
+                new String[]{"cinema_id"},
+                "hall_id = ?",
+                new String[]{hallId.toString()},
+                null,
+                null,
+                null
+        );
+
+        int columnIdx = cursor.getColumnIndex("cinema_id");
+        Integer cinemaId;
+        if (cursor.moveToFirst()) {
+            cinemaId = cursor.getInt(columnIdx);
+        } else {
+            return null;
+        }
+
+        cursor = db.query(
+                "cinema",
+                new String[]{"title"},
+                "cinema_id = ?",
+                new String[]{cinemaId.toString()},
+                null,
+                null,
+                null
+        );
+
+        columnIdx = cursor.getColumnIndex("title");
+        if (cursor.moveToFirst()) {
+            return cursor.getString(columnIdx);
+        }
+        return null;
+    }
+
     private boolean loginExists(String login) {
         Cursor cursor = db.query(
                 "user",
