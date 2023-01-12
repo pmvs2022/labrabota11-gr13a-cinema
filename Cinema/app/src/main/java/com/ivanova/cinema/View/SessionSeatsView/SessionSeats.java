@@ -92,7 +92,7 @@ public class SessionSeats extends AppCompatActivity implements SeatRecyclerViewI
         tm_seats = treeMap;
     }
 
-    private SeatUI fromSeatToSeatUI(Seat seat, ArrayList<Seat> freeSeats) {
+    public static SeatUI fromSeatToSeatUI(Seat seat, ArrayList<Seat> freeSeats) {
         boolean isFree = false;
         for (Seat freeSeat : freeSeats) {
             if (seat.getId() == freeSeat.getId()) {

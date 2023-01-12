@@ -16,7 +16,6 @@ import com.google.android.material.navigation.NavigationBarView;
 import com.ivanova.cinema.Model.DBConnector;
 import com.ivanova.cinema.Model.Entities.Ticket;
 import com.ivanova.cinema.R;
-import com.ivanova.cinema.View.BuyTicket;
 import com.ivanova.cinema.View.CinemaListView.CinemaList;
 import com.ivanova.cinema.View.LoginView.Login;
 

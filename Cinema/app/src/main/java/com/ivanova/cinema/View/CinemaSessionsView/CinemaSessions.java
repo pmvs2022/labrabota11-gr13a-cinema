@@ -114,7 +114,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         Integer cinemaId = Integer.parseInt(getIntent().getStringExtra("CINEMA_ID"));
         String date = convertToDateString(dayPicked, monthPicked, yearPicked);
         sessions = dbConnector.getSessions(cinemaId, date);
-        fromSessionsToFilmSessions(sessions);
+        filmSessions = fromSessionsToFilmSessions(sessions);
 
         // ---------------------- Sessions Recycler View -----------------------------
         recyclerView = findViewById(R.id.cinemaSessionsRecyclerView);
@@ -142,7 +142,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
         return sdf.format(date);
     }
 
-    private void fromSessionsToFilmSessions(ArrayList<Session> sessions) {
+    public static ArrayList<FilmSession> fromSessionsToFilmSessions(ArrayList<Session> sessions) {
         HashMap<Integer, FilmSession> filmSessions = new HashMap<>();
         for (Session session : sessions) {
             if (!filmSessions.containsKey(session.getFilmId())) {
@@ -151,7 +151,7 @@ public class CinemaSessions extends AppCompatActivity implements CinemaSessionsR
             FilmSession filmSession = filmSessions.get(session.getFilmId());
             filmSession.addSession(session);
         }
-        this.filmSessions = new ArrayList<>(filmSessions.values());
+        return new ArrayList<>(filmSessions.values());
     }
 
     @Override
