@@ -31,7 +31,7 @@ public class LoginTest {
     public ActivityScenarioRule<Login> rule = new ActivityScenarioRule<Login>(Login.class);
 
     @Test
-    public void registerTest() {
+    public void loginTest() {
         onView(withId(R.id.btn_register)).perform(click());
         onView(withId(R.id.btn_register_reg)).check(matches(isDisplayed()));
 
