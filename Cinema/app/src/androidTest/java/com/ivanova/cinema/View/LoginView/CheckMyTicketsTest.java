@@ -89,6 +89,16 @@ public class CheckMyTicketsTest {
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
         textView.check(matches(withText("Мои билеты")));
+
+        ViewInteraction bottomNavigationItemView2 = onView(
+                allOf(withId(R.id.exitItem), withContentDescription("Выйти"),
+                        childAtPosition(
+                                childAtPosition(
+                                        withId(R.id.bottomNavigation),
+                                        0),
+                                2),
+                        isDisplayed()));
+        bottomNavigationItemView2.perform(click());
     }
 
     private static Matcher<View> childAtPosition(
